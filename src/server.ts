@@ -1,16 +1,18 @@
 import dotenv from 'dotenv'
-import express from 'express'
+
+import app from './app'
 
 dotenv.config()
 
-const app = express()
-const port = process.env.APP_PORT
+const PORT = process.env.APP_PORT
 
-if (port === undefined) {
+if (PORT === undefined) {
   console.error('APP_PORT is not set in .env file')
   process.exit(1)
 }
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`)
+  console.log(`App is running on ${process.env.APP_URL}:${PORT}`)
+  console.log('Press CTRL-C to stop\n')
 })

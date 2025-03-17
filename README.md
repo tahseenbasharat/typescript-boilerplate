@@ -41,6 +41,23 @@ _Please follow the instructions to setup your development_
 
 _Refer to the [BUILD.md](docs/BUILD.md) file for a step-by-step guide on how this project is created, including details on dependency installation and configuration._
 
+### Usage
+
+1. Start the development server
+   ```sh
+   npm run dev
+   ```
+   
+2. Build the project
+   ```sh
+    npm run build
+    ```
+   
+3. Start the production server
+   ```sh
+    npm start
+    ```
+
 <!-- CONTACT -->
 
 ## Contact
