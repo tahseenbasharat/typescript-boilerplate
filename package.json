@@ -1,0 +1,25 @@
+{
+  "name": "typescript-boilerplate",
+  "version": "1.0.0",
+  "description": "This is a simple and easy-to-use project template designed to help you quickly set up a new project using TypeScript, ExpressJS, ESLint, and Prettier. It provides a clean and structured foundation for building scalable and maintainable applications, with pre-configured tools for code linting and formatting to ensure consistent and high-quality code.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tahseenbasharat/typescript-boilerplate.git"
+  },
+  "author": "Tahseen Basharat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tahseenbasharat/typescript-boilerplate/issues"
+  },
+  "homepage": "https://github.com/tahseenbasharat/typescript-boilerplate#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
