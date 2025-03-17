@@ -90,3 +90,97 @@ Add the following scripts to your `package.json` file
   }
 }
 ```
+
+Install prettier and eslint for code formatting and linting
+
+```sh
+  npm install -D eslint eslint-config-prettier eslint-plugin-perfectionist eslint-plugin-prettier globals prettier @eslint/eslintrc @eslint/js @typescript-eslint/eslint-plugin @typescript-eslint/parser
+```
+
+Create a new file named `.prettieriignore` and add the following code
+
+```txt
+node_modules
+dist
+build
+```
+
+Create a new file named `.prettierrc.json` and add the following code
+
+```json
+{
+  "singleQuote": true,
+  "semi": false,
+  "tabWidth": 2,
+  "useTabs": false
+}
+```
+
+Create a new file named `eslint.config.mjs` and add the following code
+
+```js
+import { FlatCompat } from '@eslint/eslintrc'
+import js from '@eslint/js'
+import typescriptEslint from '@typescript-eslint/eslint-plugin'
+import tsParser from '@typescript-eslint/parser'
+import perfectionist from 'eslint-plugin-perfectionist'
+import prettier from 'eslint-plugin-prettier'
+import { defineConfig } from 'eslint/config'
+import globals from 'globals'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const compat = new FlatCompat({
+  allConfig: js.configs.all,
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+})
+
+export default defineConfig([
+  {
+    extends: compat.extends(
+      'eslint:recommended',
+      'plugin:@typescript-eslint/recommended',
+      'plugin:prettier/recommended',
+      'plugin:perfectionist/recommended-natural-legacy'
+    ),
+
+    ignores: ['node_modules/*', 'dist/*'],
+
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+
+      parser: tsParser,
+    },
+
+    plugins: {
+      '@typescript-eslint': typescriptEslint,
+      perfectionist,
+      prettier,
+    },
+
+    rules: {
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      'prettier/prettier': 'error',
+    },
+  },
+])
+```
+
+Add the following scripts to your `package.json` file to lint and format your code
+
+```json
+{
+  "scripts": {
+    "format": "prettier 'src/**/*.{ts,tsx}' --write",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix"
+  }
+}
+```

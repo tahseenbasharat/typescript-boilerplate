@@ -8,6 +8,9 @@
   "scripts": {
     "build": "tsc",
     "dev": "nodemon src/server.ts",
+    "format": "prettier 'src/**/*.{ts,tsx}' --write",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
     "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,9 +29,19 @@
     "express": "^4.21.2"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/js": "^9.22.0",
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.10",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "eslint": "^9.22.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-perfectionist": "^4.10.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "globals": "^16.0.0",
     "nodemon": "^3.1.9",
+    "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   }
