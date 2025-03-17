@@ -39,6 +39,8 @@ _Please follow the instructions to setup your development_
    cp .env.example .env 
    ```
 
+_Refer to the [BUILD.md](docs/BUILD.md) file for a step-by-step guide on how this project is created, including details on dependency installation and configuration._
+
 <!-- CONTACT -->
 
 ## Contact
